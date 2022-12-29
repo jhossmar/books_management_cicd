@@ -12,7 +12,7 @@ pipeline {
             steps{
                 dir('client'){
                     sh "cat src/components/Books.vue | grep 'http://'"
-                    sh "sed 's/localhost/${qa_server_ip}/src/components/Books.vue'"
+                    sh "sed 's/localhost/${qa_server_ip}/' src/components/Books.vue"
                     sh "cat src/components/Books.vue | grep 'http://'"
                 }
             }
@@ -24,7 +24,7 @@ pipeline {
                     sh "docker build -t frontend:1.0 ."
 
                     //Changing IP for PROD env. 
-                    sh "sed 's/localhost/${prod_server_ip}/src/components/Books.vue'"
+                    sh "sed 's/localhost/${prod_server_ip}' /src/components/Books.vue"
                     sh "cat src/components/Books.vue | grep 'http://'"
                     sh "docker build -t frontend:1.0-prod ."
 
