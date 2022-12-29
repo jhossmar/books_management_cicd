@@ -61,7 +61,7 @@ pipeline {
                 unstash 'frontend_image-prod'
                 sh "docker compose -f docker-compose-prod.yml down"
                 sh "echo 'Y' | docker image prune -a "
-                sh "docker load -i frontend1.0.tar.gz"
+                sh "docker load -i frontend1.0-prod.tar.gz"
                 sh "docker load -i backend1.0.tar.gz"
                 sh "docker compose -f docker-compose-prod.yml up -d "
             }
