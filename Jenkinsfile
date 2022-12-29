@@ -24,7 +24,7 @@ pipeline {
                     sh "docker build -t frontend:1.0 ."
 
                     //Changing IP for PROD env. 
-                    sh "sed -i 's/localhost/${prod_server_ip}/g' /src/components/Books.vue"
+                    sh "sed -i 's/localhost/${prod_server_ip}/g' src/components/Books.vue"
                     sh "cat src/components/Books.vue | grep 'http://'"
                     sh "docker build -t frontend:1.0-prod ."
 
