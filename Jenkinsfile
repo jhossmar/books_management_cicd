@@ -9,7 +9,7 @@ pipeline {
             }            
         }
         stage('Change frontend ip'){
-            stages{
+            steps{
                 dir('client'){
                     sh "cat src/components/Books.vue | grep 'http://'"
                     sh "sed 's/localhost/${qa_server_ip}/src/components/Books.vue'"
