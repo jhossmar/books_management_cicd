@@ -29,3 +29,17 @@ Check out the [post](https://testdriven.io/developing-a-single-page-app-with-fla
     ```
 
     Navigate to [http://localhost:8080](http://localhost:8080)
+
+
+Bring up the services using docker:
+  # Build Backeng docker image 
+  # Before building, change the IP address where the Backend  service is running (client/src/components/Books.vue)
+   $ cd server
+   $ docker build -t backend:1.0 .
+  
+  # Build frontend docker image
+   $ cd client
+   $ docker build -t frontend:1.0 .
+   
+  # into the main folder start the services using docker-compose
+   $ docker-compose up -d
